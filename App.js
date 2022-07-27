@@ -1,14 +1,19 @@
 import { NavigationContainer } from '@react-navigation/native';
 import StackScreen from './navigator/StackScreen';
-import React from 'react';
+import React, {useState} from 'react';
+import { Component } from 'react/cjs/react.production.min';
 
 
-
-export default function App() {
-  return (
-    <NavigationContainer>
-      <StackScreen/>
-    </NavigationContainer>
-  );
+export default class App extends Component {
+  state = {
+    isLogin : false,
+  }
+  render() {
+    return(
+      <NavigationContainer>
+        <StackScreen/>    
+      </NavigationContainer>
+    )
+  }
 }
 

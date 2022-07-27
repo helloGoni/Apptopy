@@ -9,7 +9,7 @@ export const HomeScreen = ({navigation}) => {
         </View>
         <View style={{ justifyContent: 'center', alignItems: 'center' }}>
           <Text>Home!</Text>
-          <Button title="dfdfd" onPress={()=>navigation.navigate('로그인')}/>
+          <Button title="dfdfd" onPress={()=>navigation.navigate('회원가입')}/>
         </View>
       </ScrollView>
     );

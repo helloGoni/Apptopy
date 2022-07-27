@@ -1,20 +1,30 @@
 
-import { Feather } from '@expo/vector-icons';
 import React from 'react';
 import { TouchableOpacity, StyleSheet, View, Text, Button} from "react-native";
 import { ScrollView } from 'react-native';
 
-function MypageScreen({navigation}) {
+import {SubscribeAuth} from '../../firebase';
+
+function MypageScreen({navigation}) {  
+    var isLogin = false;
     return (
       <ScrollView style={{backgroundColor:'#e2e2e2'}}>
+        {isLogin ? (
         <View style={{ marginTop: 10, justifyContent: 'center', alignItems: 'center',backgroundColor:'white',
-      height: 120, }}>
-          <Text style={{fontSize: 30, fontWeight: '500'}}>로그인하기</Text>
-          <TouchableOpacity>
-            <Text>로그인</Text>
-          </TouchableOpacity>
-          
+            height: 120, }}>
+          <Text style={{fontSize: 30, fontWeight: '500'}}>현혜영님 어서오세요</Text>      
         </View>
+        ) : (
+          <View style={{ marginTop: 10, justifyContent: 'center', alignItems: 'center',backgroundColor:'white',
+          height: 120, }}>
+              <Text style={{fontSize: 30, fontWeight: '500'}}>로그인하기</Text>
+              <TouchableOpacity stlye={{height:50, width:30, }} onPress={()=>navigation.navigate('로그인')}>
+                <Text>로그인</Text>
+              </TouchableOpacity>          
+            </View>
+        )}
+
+
         <View style={styles.smallOption}>
             <Text style={{fontSize: 15, fontWeight: '500'}}>내 정보</Text>
           </View>

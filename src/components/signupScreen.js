@@ -1,18 +1,19 @@
-import React, {useState, Component} from 'react';
-import {TextInput, StyleSheet, View, Text, Alert, Button,TouchableOpacity} from 'react-native';
-import {SignIn} from "../../firebase"
+import React, { useState} from "react";
+import {Alert,View,Text,TextInput,StyleSheet,TouchableOpacity,} from "react-native";
+import { Component } from "react/cjs/react.production.min";
+import {SignUp} from "../../firebase"
 
-export default class LoginScreen extends Component {
+export default class SignupScreen extends Component {
     state = {
         email: "",
-        password: "",     
-      };
+        password: "",
+    };
 
-    loginSubmit = () => {
+    signUpSubmit = () => {
         this.setState({email: this.state.inputEmail, password: this.state.inputPW})
         try{
-            SignIn(this.state.email,this.state.password);
-            Alert.alert("로그인 성공!!");
+            SignUp(this.state.email,this.state.password);
+            Alert.alert("음!!");
             console.log("성공");
         }catch (e) {
             const messages = {
@@ -22,6 +23,7 @@ export default class LoginScreen extends Component {
                 'auth/invalid-email': '유효하지 않은 이메일 주소입니다.',
               };
             console.log("실패");
+            Alert.alert("회원가입~~~실패!!!!")
         }
     }
 
@@ -32,15 +34,16 @@ export default class LoginScreen extends Component {
             onChangeText={(email)=> {this.setState({inputEmail: email})}} style = {styles.input} />
             <TextInput  type="password" placeholder="비밀번호" 
             onChangeText={(password)=> {this.setState({inputPW: password})}} style = {styles.input} />
-            <TouchableOpacity style= {styles.loginButton} onPress={this.loginSubmit} >
-                <Text> 로그인</Text>
+            <TouchableOpacity style= {styles.loginButton} onPress={this.signUpSubmit} >
+                <Text> 회원가입</Text>
             </TouchableOpacity>
         </View>
         );
     }
 
-}
 
+
+}
 const styles = StyleSheet.create({
     input : {
         width: 300,
