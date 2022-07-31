@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {AntDesign, FontAwesome,MaterialCommunityIcons} from '@expo/vector-icons';
-
+import { Button,View } from "react-native";
 import HomeScreen from "../src/tabScreens/homeScreen";
 import CalendarScreen from "../src/tabScreens/calendarScreen";
 import CommunityScreen from "../src/tabScreens/communityScreen";
@@ -9,7 +9,7 @@ import MypageScreen from "../src/tabScreens/mypageScreen";
 
 const Tab = createBottomTabNavigator();
 
-const BottomTabs = () => {
+const BottomTabs = ({navigation}) => {
     return (
           <Tab.Navigator
             screenOptions={{
@@ -21,6 +21,7 @@ const BottomTabs = () => {
               tabBarStyle : {backgroundColor:"#ffb2b2"}             
             }}
           >
+            
             <Tab.Screen name="Home" component={HomeScreen} options={{
               tabBarLabel: "홈",     
               tabBarIcon: () => (
@@ -35,6 +36,10 @@ const BottomTabs = () => {
             }} />
             <Tab.Screen name="나의 아토피 기록" component={CalendarScreen} options={{
               tabBarLabel: "캘린더",
+              headerRight : () => (
+                <Button onPress={()=>navigation.navigate('새로운 기록')} title="+" />
+                
+              ),
               tabBarIcon: () => (
                 <AntDesign name="calendar" size={24} color="white" />
               )

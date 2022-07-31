@@ -1,28 +1,25 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import { TouchableOpacity, StyleSheet, View, Text, Button} from "react-native";
 import { ScrollView } from 'react-native';
+import {getAuth } from "firebase/auth";
 
-import {SubscribeAuth} from '../../firebase';
-
-function MypageScreen({navigation}) {  
-    var isLogin = false;
+function MypageScreen({navigation}) {    
+  
+  const auth = getAuth();
+  const user = auth.currentUser;  
     return (
       <ScrollView style={{backgroundColor:'#e2e2e2'}}>
-        {isLogin ? (
-        <View style={{ marginTop: 10, justifyContent: 'center', alignItems: 'center',backgroundColor:'white',
-            height: 120, }}>
-          <Text style={{fontSize: 30, fontWeight: '500'}}>현혜영님 어서오세요</Text>      
-        </View>
-        ) : (
-          <View style={{ marginTop: 10, justifyContent: 'center', alignItems: 'center',backgroundColor:'white',
-          height: 120, }}>
-              <Text style={{fontSize: 30, fontWeight: '500'}}>로그인하기</Text>
-              <TouchableOpacity stlye={{height:50, width:30, }} onPress={()=>navigation.navigate('로그인')}>
-                <Text>로그인</Text>
-              </TouchableOpacity>          
-            </View>
-        )}
+        <TouchableOpacity style={{justifyContent:'center', flexDirection:'row'}}>
+          <View stlye={styles.profilePicture}>
+            <Text>dfdfdfdffddffdfdfdfdfd</Text>
+          </View>
+          <View stlye={{flexDirection:'column'}}>
+            <Text>{user.email}</Text>
+            <Text>당신의 닉네임은 입니다</Text>
+          </View>
+        </TouchableOpacity>
+
 
 
         <View style={styles.smallOption}>
@@ -53,11 +50,13 @@ function MypageScreen({navigation}) {
           </TouchableOpacity>
 
 
-          <TouchableOpacity activeOpacity ={0.8}  style={styles.smallOption} onPress={()=>navigation.navigate('문의하기') }>
+          <TouchableOpacity activeOpacity ={0.8}  style={styles.smallOption} 
+            onPress={()=>navigation.navigate('문의하기') }>
             <Text>문의하기</Text>
           </TouchableOpacity>
           
-          <TouchableOpacity activeOpacity ={0.8} style={styles.smallOption} onPress={()=>navigation.navigate('앱정보') }>
+          <TouchableOpacity activeOpacity ={0.8} style={styles.smallOption} 
+            onPress={()=>navigation.navigate('앱정보') }>
             <Text>앱 정보 및 설정</Text>
           </TouchableOpacity>
           <View style={styles.smallOption}>
@@ -84,6 +83,9 @@ const styles = StyleSheet.create({
     paddingLeft : 20,
     height: 60,
     fontSize : 100,
+
+  },
+  profilePicture : {
 
   }
 });
