@@ -7,7 +7,7 @@ export const CommunityScreen = () => {
           <Text style={{color:"white"}}>하이</Text>
         </View>
         <View style={{ flex: 15, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>Home!</Text>
+          <Text>준비중입니다!</Text>
         </View>
       </ScrollView>
     );

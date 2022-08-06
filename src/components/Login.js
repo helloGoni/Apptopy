@@ -45,6 +45,7 @@ const Login = ({navigation}) => {
                 console.log(error.code)
                 console.log(error.message)
             });
+            
     }
 
     return (

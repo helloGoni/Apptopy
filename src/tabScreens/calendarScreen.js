@@ -2,6 +2,10 @@ import {Calendar, CalenderList, Agenda, LocaleConfig} from 'react-native-calenda
 import { View, Text } from "react-native";
 import React,{useEffect,useState} from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { reducer } from 'react-async';
+
+import RecordItem from '../calendarComponents/recordItem'
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 LocaleConfig.locales['fr'] = {
@@ -13,20 +17,28 @@ LocaleConfig.locales['fr'] = {
   };  
   LocaleConfig.defaultLocale ='fr';  
 
-export const CalendarScreen = () => {
 
-  
-  AsyncStorage.getItem('@todo:day').then((day)=> {
+
+export const CalendarScreen = () => {  
+  /*AsyncStorage.getItem('@todo:day').then((day)=> {
     if(day != NULL) {
       this.setState(JSON.parse(day));
     }
-  });
-
-
-
-
+  });*/
+    const rendering = () => {
+      const renderResult = [];
+      for(let i=0;i<9;i++)
+      {
+          renderResult.push(<RecordItem/>)
+      }
+      return renderResult;
+    }
     return (
-      <>
+      <ScrollView>
+        <View>
+          <Text>이번 달의 점수 어쩌고저쩌고`</Text>
+        </View>
+
         <View>          
         <Calendar
     // 날짜를 눌렀을 때 실행되는 함수, Default = undefined
@@ -40,14 +52,11 @@ export const CalendarScreen = () => {
     onPressArrowLeft={subtractMonth => subtractMonth()}    
     onPressArrowRight={addMonth => addMonth()}
     />
-        </View>
+        </View>       
         <View>
-          <Text>오늘 먹은 음식</Text>
+          {rendering()}
         </View>
-        <View>
-          <Text>특이사항</Text>
-        </View>  
-      </>  
+      </ScrollView>  
     );
   }
 
