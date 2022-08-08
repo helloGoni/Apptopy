@@ -8,3 +8,5 @@ export const screenStyle= {
     headerTItleStyle:{fontWeight:'bold'},
     tabBarStyle : {backgroundColor:"#ffb2b2"}      
 };
+
+

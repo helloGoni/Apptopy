@@ -1,22 +1,26 @@
-import { stringLength } from '@firebase/util';
 import React from 'react';
 import {View, Text,StyleSheet} from 'react-native'
+import RecordItem from './recordItem';
 
 export default function RecordList() {
+    const rendering = () => {
+        const renderResult = [];
+        for(let i=0;i<9;i++)
+        {
+            renderResult.push(<RecordItem/>)
+        }
+        return renderResult;
+      }
+
     return (
         <View style={styles.container}>
-            <Text>하이</Text>
+            {rendering()}
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    record : {
-        height: 100,
-        width : '80%',
-        backgroundColor: 'blue',
-    },
     container : {
-        flexDirection:'row',
+        flexDirection:'column',
     },
 })

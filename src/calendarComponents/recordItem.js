@@ -2,11 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 export default function RecordItem({}){
-    return (
-        
+    return (        
         <View style={styles.wrap}>
             <TouchableOpacity style={styles.item} activeOpacity={0.7}>
-                <View>
+                <View style={styles.point}>
                     <Text>점수</Text>
                 </View>
                 <View>
@@ -16,10 +15,10 @@ export default function RecordItem({}){
         </View>
     );
 }
-
 const styles = StyleSheet.create({
     wrap : {
         alignItems : 'center',
+        width: '100%',
     },    
     item : {
         flexDirection: 'row',
@@ -32,5 +31,8 @@ const styles = StyleSheet.create({
         width: '90%',
         height: 60,
         marginTop: 10,
+    },
+    point : {
+        
     },
 })
