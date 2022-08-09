@@ -4,15 +4,14 @@ import { TouchableOpacity, StyleSheet, View, Text, Button} from "react-native";
 import { ScrollView } from 'react-native';
 import {getAuth } from "firebase/auth";
 
-function MypageScreen({navigation}) {    
-  
+function MypageScreen({navigation}) {     
   const auth = getAuth();
   const user = auth.currentUser;  
     return (
-      <ScrollView style={{backgroundColor:'#e2e2e2'}}>
+      <ScrollView>
         <TouchableOpacity style={{justifyContent:'center', flexDirection:'row'}}>
           <View stlye={styles.profilePicture}>
-            <Text>dfdfdfdffddffdfdfdfdfd</Text>
+            <Text>dfdf</Text>
           </View>
           <View stlye={{flexDirection:'column'}}>
             <Text>{user.email}</Text>
@@ -69,7 +68,6 @@ function MypageScreen({navigation}) {
 
 const styles = StyleSheet.create({
   bigOption : {
-    backgroundColor : '#e2e2e2',
     color : 'white',
     paddingTop : 10,
     paddingBottom : 5,

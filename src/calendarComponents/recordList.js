@@ -1,20 +1,35 @@
-import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React,{useState} from 'react';
 import {View, Text,StyleSheet} from 'react-native'
 import RecordItem from './recordItem';
 
 export default function RecordList() {
-    const rendering = () => {
-        const renderResult = [];
-        for(let i=0;i<9;i++)
-        {
-            renderResult.push(<RecordItem/>)
-        }
-        return renderResult;
-      }
+    const loadResult = [];
+    const [record, setRecord] = useState('');
 
-    return (
+    const loadRecord = async() => {
+        try {
+            setRecord(await AsyncStorage.getItem("@hello"))
+            loadResult.push(record)
+        } catch(e) {
+            console.log("실패")
+        }
+     }
+    const rendering = () => {
+        for(let i=0;i<9;i++)
+        {            
+            loadResult.push(<RecordItem/>)
+        }
+        return loadResult;
+      }
+              {loadRecord()};
+    return(
         <View style={styles.container}>
+            <View style={{marginLeft:"4%", marginTop:20,marginBottom:5}}>
+                <Text style={{fontSize: 17, fontWeight:"500"}}>이번 달의 아토피 기록</Text>
+            </View>
             {rendering()}
+            <Text>아{record}녕</Text>
         </View>
     )
 }

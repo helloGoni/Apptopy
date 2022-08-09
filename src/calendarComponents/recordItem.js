@@ -1,12 +1,14 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function RecordItem({}){
+
+export default function RecordItem(){
     return (        
         <View style={styles.wrap}>
             <TouchableOpacity style={styles.item} activeOpacity={0.7}>
                 <View style={styles.point}>
-                    <Text>점수</Text>
+                    <Text>96</Text>
                 </View>
                 <View>
                     <Text>내용</Text>
@@ -26,13 +28,16 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems: 'center',
         borderColor: 'blue',
-        borderWidth: 2,
-        borderRadius: 3,
-        width: '90%',
-        height: 60,
-        marginTop: 10,
+        borderWidth: 1,
+        borderRadius: 10,
+        width: '92%',
+        height: 70,
+        marginTop: 5,
     },
     point : {
-        
+        width:'20%',
+        height: 70,
+        justifyContent:'center',
+        alignItems: 'center',
     },
 })

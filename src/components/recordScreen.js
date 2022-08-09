@@ -4,34 +4,35 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function RecordScreen() {
-    const [text,setText] = useState('');
-
+    const [content, setContent] = useState('');
     const onPress = () => {
-      onInsert(text);
-      setText('');
+      saveRecord(content);
+      setContent('');
       Keyboard.dismiss();
     }
-    const saveRecord = async (toSave) => {
-        await AsyncStorage.setItem("@hello",JSON.stringify(toSave))
-    }
+    const saveRecord = async (content) => {
+      try{
+        await AsyncStorage.setItem("@hello",JSON.stringify(content))
+        console.log(await AsyncStorage.getItem("@hello"));
+      } catch (e) {
+        console.log('실패');
+      }
+
+    } 
     return (
       <>
         <View style={{justifyContent:'center',alignItems:'center'}}>
           <Text>오늘의 점수</Text>
           <TextInput
             placeholder='뭐든 입력하세요!'
-            style={styles.contentinput}
-            value={text}
-            onChangeText={setText}
+            style={styles.contentInput}
+            value={content}
+            onChangeText={setContent}
             onSubmitEditing={onPress} //엔터누르면 키보드 사라짐
             returnKeyType="done" //엔터타입지정
           />
         </View>
-        <TouchableOpacity onPress={()=> alert('dfdfdf')}style={{justifyContent: 'center', alignItems: 'center' }}>
-          <Text>저장</Text>
-        </TouchableOpacity>
-        <Text>저장</Text>
-        <TextInput></TextInput>
+      
       </>
     );
 }
