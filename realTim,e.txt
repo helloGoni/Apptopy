@@ -1,0 +1,14 @@
+
+
+
+
+boardList		
+	boardID
+	userID
+	boardTitle
+	boardDate
+	countView
+	countLike
+	countComment
+	boardContent
+					

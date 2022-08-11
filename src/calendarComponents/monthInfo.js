@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 
-export default function MonthInfo({}){
+export default function MonthInfo(){
     return (            
         <View style={styles.wrap}>
             <View>
@@ -21,5 +21,6 @@ const styles = StyleSheet.create({
         alignItems : 'center',
         justifyContent:'center',        
         height: 100,
+        backgroundColor:'white',
     },    
 })

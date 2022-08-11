@@ -4,6 +4,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function RecordScreen() {
+    const today = new Date();
     const [content, setContent] = useState('');
     const onPress = () => {
       saveRecord(content);
@@ -12,7 +13,8 @@ function RecordScreen() {
     }
     const saveRecord = async (content) => {
       try{
-        await AsyncStorage.setItem("@hello",JSON.stringify(content))
+        await AsyncStorage.setItem("record",JSON.stringify(content))
+        await AsyncStorage.setItem("@hi",JSON.stringify(content))
         console.log(await AsyncStorage.getItem("@hello"));
       } catch (e) {
         console.log('실패');

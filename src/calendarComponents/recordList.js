@@ -29,7 +29,7 @@ export default function RecordList() {
                 <Text style={{fontSize: 17, fontWeight:"500"}}>이번 달의 아토피 기록</Text>
             </View>
             {rendering()}
-            <Text>아{record}녕</Text>
+            <Text>{record}</Text>
         </View>
     )
 }

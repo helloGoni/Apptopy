@@ -1,5 +1,5 @@
 import {Calendar, CalenderList, Agenda, LocaleConfig} from 'react-native-calendars';
-import { View, Text } from "react-native";
+import { View, Text,StyleSheet } from "react-native";
 import React,{useEffect,useState} from "react";
 
 LocaleConfig.locales['fr'] = {
@@ -13,7 +13,7 @@ LocaleConfig.defaultLocale ='fr';
 
 export default function CalendarTreat() {
     const markedDates = {
-        '2022-08-10' : {
+        '2022-08-11' : {
           selected: true,
         },
       }
@@ -31,7 +31,23 @@ export default function CalendarTreat() {
                 firstDay={7}    
                 onPressArrowLeft={subtractMonth => subtractMonth()}    
                 onPressArrowRight={addMonth => addMonth()}
+                theme={{
+                  selectedDayBackgroundColor: 'pink',
+                  arrowColor : 'pink',
+                  dotColor: 'yellow',
+                  todayTextColor: 'orange',
+                }}
+                style={styles.calendar}
             />
         </View>
     );
   }
+
+  const styles = StyleSheet.create({
+    calendar: {
+      borderBottomWidth: 1,
+      borderBottomColor : 'black',
+      borderTopColor  : 'black',
+      borderTopWidth: 1,
+    }
+  })

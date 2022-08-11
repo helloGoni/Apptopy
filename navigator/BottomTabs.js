@@ -24,7 +24,7 @@ const BottomTabs = ({navigation}) => {
             
             <Tab.Screen name="Home" component={HomeScreen} options={{
               tabBarLabel: "홈",   
-              headerShown: false,  
+              //headerShown: false,  
               tabBarIcon: () => (
                 <AntDesign name="home" size={24} color="white" />
               )

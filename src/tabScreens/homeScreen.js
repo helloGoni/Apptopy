@@ -1,14 +1,12 @@
 import React from 'react';
 import { ScrollView, View, Text,Button,TouchableOpacity,StyleSheet } from "react-native";
 import {getAuth } from "firebase/auth";
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const HomeScreen = ({navigation}) => {
 
     const auth = getAuth();
     const user = auth.currentUser;
     return (
-      <SafeAreaView>
         <ScrollView>
           <View style={styles.top}>
             <View style={styles.userPic}>
@@ -27,7 +25,6 @@ export const HomeScreen = ({navigation}) => {
 
           </View>
         </ScrollView>
-      </SafeAreaView>
     );
 }
 export default HomeScreen;
