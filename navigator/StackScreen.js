@@ -8,6 +8,7 @@ import BottomTabs from './BottomTabs';
 import SignupScreen from '../src/components/signupScreen';
 import RecordScreen from '../src/components/recordScreen';
 import Login from '../src/components/Login';
+import WriteScreen from '../src/communityComponents/writeScreen';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,7 @@ const StackScreen = () => {
         <Stack.Screen name="앱정보" component={AppinfoScreen}/>
         <Stack.Screen name="회원가입" component={SignupScreen}/>
         <Stack.Screen name="새로운 기록" component={RecordScreen}/>
+        <Stack.Screen name="글쓰기" component={WriteScreen}/>
       </Stack.Navigator>
     );
 }
