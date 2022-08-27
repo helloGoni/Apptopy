@@ -28,7 +28,6 @@ export const CommunityScreen = ({navigation}) => {
   }
     const database = getDatabase();
 
-
     return (
       <ScrollView>
         <View style={styles.topMenu}>

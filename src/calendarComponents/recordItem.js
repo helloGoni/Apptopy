@@ -1,6 +1,5 @@
 import React,{useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function RecordItem(){

@@ -38,7 +38,7 @@ const BottomTabs = ({navigation}) => {
             <Tab.Screen name="나의 아토피 기록" component={CalendarScreen} options={{
               tabBarLabel: "캘린더",
               headerRight : () => (
-                <Button onPress={()=>navigation.navigate('새로운 기록')} title="+" />
+                <Button onPress={()=>navigation.navigate('새로운 기록')} title="기록" />
                 
               ),
               tabBarIcon: () => (

@@ -1,4 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import React,{useState} from 'react';
 import {View, Text,StyleSheet} from 'react-native'
 import RecordItem from './recordItem';
@@ -7,14 +7,6 @@ export default function RecordList() {
     const loadResult = [];
     const [record, setRecord] = useState('');
 
-    const loadRecord = async() => {
-        try {
-            setRecord(await AsyncStorage.getItem("@hello"))
-            loadResult.push(record)
-        } catch(e) {
-            console.log("실패")
-        }
-     }
     const rendering = () => {
         for(let i=0;i<9;i++)
         {            
@@ -22,7 +14,6 @@ export default function RecordList() {
         }
         return loadResult;
       }
-              {loadRecord()};
     return(
         <View style={styles.container}>
             <View style={{marginLeft:"4%", marginTop:20,marginBottom:5}}>

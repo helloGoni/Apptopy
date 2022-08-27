@@ -22,7 +22,10 @@ export const HomeScreen = ({navigation}) => {
             </View>
           </View>
           <View style={styles.mid}>
-
+            <Text>광고같은거 끼워넣기</Text>
+          </View>
+          <View style={styles.bottomBoard}>
+            <Text>아토피 소식</Text>
           </View>
         </ScrollView>
     );
@@ -58,5 +61,8 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     fontSize: 30,
+  },
+  bottomBoard : {
+    
   },
 })
